@@ -1,0 +1,108 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+.wrapper-main-s {
+    background-color: #f7f9ee;
+}
+.main-content {
+    max-width: 1170px;
+    padding: 50px 15px;
+    margin: 0 auto;
+}
+img {
+    width: 100%;
+    max-width: 100%;
+}
+.unit {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    color: #7ea2b3;
+    font: normal 40px 'Oswald', sans-serif;
+    line-height: 50px;
+    letter-spacing: 0.05em;
+}
+.block-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.item-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(25% - 30px);
+    margin: 0 15px 24px 15px;
+}
+.wrapper-img-card {
+    position: relative;
+}
+.composition {
+    position: absolute;
+    top: 25%;
+    left: 5%;
+    transform: translate(-5%,-25%);
+    color: #fff;
+    font: normal 19px 'Dosis', sans-serif;
+    line-height: 35px;
+    text-align: center;
+    opacity: 0;
+    z-index: 9;
+}
+.img-card {
+    height: 100%;
+}
+.wrapper-img-card:hover .composition {
+    transition: opacity .5s ease;
+    opacity: 1;
+}
+.wrapper-img-card:before {
+    content: '';
+    position: absolute;
+    background-color: rgba(21,51,68,0.6);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+.wrapper-img-card:hover::before {
+    transition: opacity .3s ease;
+    opacity: 1;
+}
+.txt-card {
+    margin-bottom: 25px;
+    color: #7ea2b3;
+    font: normal 24px 'Oswald', sans-serif;
+    line-height: 30px;
+    text-align: center;
+}
+.btn-card {
+    color: #fff;
+    background-color: #97b621;
+    text-transform: uppercase;
+    padding: 10px 20%;
+    border: none;
+    border-radius: 30px;
+    font: normal 13px 'Oswald', sans-serif;
+}
+@media (max-width: 768px) {
+    .main-content {
+        padding: 5px;
+    }
+    .item-card {
+        width: calc(50% - 30px);
+        margin-bottom: 40px;
+    }
+    .txt-card {
+        margin-top: 20px;
+    }
+}
+@media (max-width: 500px) {
+    .item-card {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+}

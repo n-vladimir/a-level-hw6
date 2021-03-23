@@ -1,0 +1,267 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+body {
+    font-size: 20px;
+}
+h2 {
+    font-size: 30px;
+    text-transform: uppercase;
+}
+header, main, footer {
+    display: flex;
+}
+header {
+    padding: 40px 20px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: yellow;
+}
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+.logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+.logo img {
+    max-width: 200px;
+}
+/* скрываем чекбокс */
+#menu__toggle {
+    opacity: 0;
+}
+
+/* стилизуем кнопку */
+.menu__btn {
+    display: flex; /* используем flex для центрирования содержимого */
+    align-items: center;  /* центрируем содержимое кнопки */
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* добавляем "гамбургер" */
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #616161;
+}
+.menu__btn > span::before {
+    content: '';
+    top: -8px;
+}
+.menu__btn > span::after {
+    content: '';
+    top: 8px;
+}
+/* контейнер меню */
+.menu__box {
+    display: block;
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    left: -100%;
+    width: 300px;
+    height: 100%;
+    margin: 0;
+    padding: 80px 0;
+    list-style: none;
+    text-align: center;
+    background-color: #ECEFF1;
+    box-shadow: 1px 0 6px rgba(0, 0, 0, .2);
+}
+
+/* элементы меню */
+.menu__item {
+    display: block;
+    padding: 12px 24px;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+}
+.menu__item:hover {
+    background-color: #CFD8DC;
+}
+#menu__toggle:checked ~ .menu__btn > span {
+    transform: rotate(45deg);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::before {
+    top: 0;
+    transform: rotate(0);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+#menu__toggle:checked ~ .menu__box {
+    visibility: visible;
+    left: 0;
+}
+/*Для этого просто добавим свойство transition-duration: .25s следующим классам:*/
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+    transition-duration: .25s;
+}
+.menu__box {
+    transition-duration: .25s;
+}
+.menu__item {
+    transition-duration: .25s;
+}
+.site-content {
+    flex: 1;
+}
+main {
+    justify-content: space-between;
+    align-items: stretch;
+}
+aside {
+    text-align: center;
+    width: 210px;
+    padding-bottom: auto;
+}
+.aside-left {
+    background-color: fuchsia;
+    padding-top: 10px;
+    order: -1;
+}
+.aside-right {
+    background-color: cornflowerblue;
+    padding-top: 10px;
+}
+.s-info {
+    text-align: center;
+    padding: 20px 15px;
+    width: calc(100% - (210px + 210px));
+}
+.block-work-items {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.work-item {
+    display: flex;
+    flex-direction: column;
+    width: calc(33.333% - 20px);
+    border: 2px solid #999;
+    border-radius: 25px;
+    align-items: stretch;
+    justify-content: space-between;
+    padding: 10px 15px;
+    margin: 0 10px 25px;
+}
+.work-item img {
+    width: 100px;
+    height: 100px;
+    border: 10px solid mediumpurple;
+    border-radius: 50%;
+    margin: 0 auto 20px auto;
+}
+.work-item button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 30px;
+    padding: 5px 15px;
+    background-color: rebeccapurple;
+    color: #fff;
+    font-weight: bold;
+    margin: 0 auto;
+    transition: box-shadow .3s ease;
+}
+.work-item button:hover {
+    box-shadow:  0 0 5px rgba(0, 0, 0, .5);
+}
+footer {
+    flex-direction: column;
+    background-color: darkseagreen;
+    align-items: center;
+    padding: 10px;
+}
+.holder {
+    font-weight: bold;
+    min-width: 300px;
+    max-width: 500px;
+    height: 100px;
+    border: 4px solid #000;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: 20px auto;
+}
+.holder .item {
+    padding: 10px;
+}
+.holder .item:nth-child(1) {
+    background-color: red;
+    width: 50%;
+    order: -3;
+}
+.holder .item:nth-child(2) {
+    background-color: blue;
+    width: 33.3%;
+}
+.holder .item:nth-child(3) {
+    background-color: purple;
+    width: 33.3%;
+    order: -1;
+}
+.holder .item:nth-child(4) {
+    background-color: green;
+    width: calc(100% - 66.6%)
+}
+.holder .item:nth-child(5) {
+    background-color: orange;
+    width: 50%;
+    order: -2;
+}
+@media (max-width: 1024px) {
+    aside {
+        padding: 15px 30px 0 30px;
+        width: auto;
+    }
+    .s-info {
+        width: auto;
+    }
+}
+@media (max-width: 768px) {
+    main {
+        flex-wrap: wrap;
+    }
+    .s-info {
+        order: -2;
+    }
+    .aside-left, .aside-right {
+        width: 50%;
+        padding: 25px 0;
+    }
+    .work-item {
+        width: calc(50% - 20px);
+    }
+}
+@media (max-width: 480px) {
+    .work-item, .aside-left, .aside-right {
+        width: 100%;
+    }
+}
